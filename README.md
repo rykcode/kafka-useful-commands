@@ -79,6 +79,7 @@ Start producing messages to the kafka queue.
 For this download the java maven project and run the main class KafkaProducer as a Java Application through eclipse.
 
 Consuming messages from the Kafka queue
+---------------------------------------
 
 Other helpful commands
 ======================
