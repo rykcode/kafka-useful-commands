@@ -23,9 +23,7 @@ Setup the zookeeper config. Zookeeper reads the config from the conf/zoo.cfg fil
 
 ```vim conf/zoo.cfg```
 
-Change the entry of dataDir as follows
-
-    dataDir=/var/zookeeper
+Change the entry of dataDir to /tmp/zookeeper or /var/zookeeper or any other convenient location.
 
 Make sure that the current user (most likely ubuntu has permissions to write to /var/zookeeper)
 
@@ -75,11 +73,17 @@ Start a consumer that consumes all messages sent to topic=“test”. This consu
 
 Later we will build a consumer using java code. 
 
-Start producing messages to the kafka queue.
-For this download the java maven project and run the main class KafkaProducer as a Java Application through eclipse.
+Producing messages to the kafka queue
+=====================================
+For this run the main class ```HelloKafkaProducer.java``` as a Java Application through eclipse.
 
 Consuming messages from the Kafka queue
----------------------------------------
+=======================================
+For this run the ```HelloKafkaConsumer.java``` as a Java Application through eclipse.
 
 Other helpful commands
 ======================
+Deleting a topic on the kafka queue. Sometimes you may want to simply start from scratch by deleting the topic from the kafka queue. Use the following command
+
+```bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic <topicname>```
+
