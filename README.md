@@ -85,21 +85,35 @@ Other helpful commands
 ======================
 Deleting a topic on the kafka queue. Sometimes you may want to simply start from scratch by deleting the topic from the kafka queue. Use the following command
 
-```bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic <topicname>```
+```bin/kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic <topicname> ```
 This command will simply delete the topic but not the underlying data stored in kafka.
 
 Alternately you could do the following
-```~/apache-kafka/kafka/bin/kafka-server-stop.sh```
-```rm -rf /tmp/kafka``` This is where kafka stores the data.
-log in to zookeeper cli 
+
+```~/apache-kafka/kafka/bin/kafka-server-stop.sh ```
+
+```rm -rf /tmp/kafka ```
+
+This is where kafka stores the data.
+
+Log in to zookeeper cli 
+
 ```~/apache-zookeeper/zookeeper/bin/zkCli.sh ```
+
 delete consumers and brokers
+
 ```rmr /consumers ```
+
 ```rmr /brokers ```
+
 exit from zookeeper cli
+
 ```exit ```
 
 Start the kafka server again
+
 ```bin/kafka-server-start.sh config/server.properties```
+
 Create topic if needed 
+
 ```~/apache-kafka/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test```
